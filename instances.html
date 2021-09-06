@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Drive</title>
+    <script type="text/javascript" src="./cdnjs-vue.js"></script>
+</head>
+
+<body>
+    <div id="vue_det">
+        <h1>First name: {{firstName}}</h1>
+        <h1>Last name: {{lastName}}</h1>
+        <h1>address: {{address}}</h1>
+        <h1>Details: {{myDetails()}}</h1>
+    </div>
+
+    <script>
+        // For Vue, there is a parameter called el. It takes the id of the DOM element. 
+        // In the above example, we have the id #vue_det. It is the id of the div element, 
+        // which is present in .html.
+
+        var vm = new Vue({
+            el: '#vue_det',
+            data: {
+                firstName: 'Tauhidul',
+                lastName: 'Islam',
+                address: 'Kushtia'
+            },
+            methods: {
+                myDetails: function () {
+                    return "i am " + this.firstName + " " + this.lastName;
+                }
+            }
+        });
+        console.log('vm ->',vm)
+
+    </script>
+</body>
+
+</html>

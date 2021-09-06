@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +8,37 @@
     <title>Document</title>
     <script type="text/javascript" src="./cdnjs-vue.js"></script>
 </head>
+
 <body>
     <div id="intro" style="text-align: center;">
         <h1>{{message}}</h1>
+        <p>{{myDetails()}}</p>
 
     </div>
 
     <script>
         var vue_det = new Vue({
             el: '#intro',
-            data:{
+            data: {
+                firstName: 'Tauhidul',
+                lastName: 'Islam',
+                address: 'Kushtia',
                 message: 'My first VueJS Task'
+            },
+            methods: {
+                myDetails: function () {
+                    return `I am ${this.firstName} ${this.lastName}`
+                }
             }
+
         });
+        console.log('vue_det', vue_det);
+        console.log('address', vue_det.address);
+        console.log('$data ', vue_det.$data.message);
+        console.log('myDetails function call', vue_det.myDetails());
+
     </script>
 
 </body>
+
 </html>
