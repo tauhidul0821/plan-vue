@@ -10,9 +10,21 @@
 </head>
 
 <body>
+    <div id="app3">
+        <div>{{htmlcontent}}</div>
+
+    </div>
 
 
     <script>
+        var vm = new Vue({
+            el: '#app3',
+            data: {
+                htmlcontent: `<div>
+                    <h1>This is template</h1>
+                    </div>`
+            }
+        })
 
     </script>
 
