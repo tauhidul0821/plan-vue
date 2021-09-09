@@ -11,7 +11,8 @@
 
 <body>
     <div id="app3">
-        <div>{{htmlcontent}}</div>
+        <div v-html="htmlcontent"></div>
+        <img v-bind:src="imgsrc" width="300px" height="250">
 
     </div>
 
@@ -22,7 +23,8 @@
             data: {
                 htmlcontent: `<div>
                     <h1>This is template</h1>
-                    </div>`
+                    </div>`,
+                imgsrc: 'images/flower.png'
             }
         })
 
