@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Drive</title>
+    <script type="text/javascript" src="./cdnjs-vue.js"></script>
+</head>
+
+<body>
+    <!-- problem with Vue.extend(); -->
+    <!-- <div id="app2">
+        <h1>FirstName: {{firstName}}</h1>
+        <h1>LastName: {{lastName}}</h1>
+        <h1>Details: {{myDetails()}}</h1>
+    </div>
+    <div id="app22">
+        <h2>{{firstName}}</h2>
+
+    </div>
+    <script>
+        var _obj = { firstName: 'Tauhidul', lastName: 'Islam' }
+        var _obj2 = { firstName: 'Rofiqul', lastName: 'Khadem' }
+        var vm = new Vue({
+            el: '#app2',
+            data: _obj,
+            methods: {
+                myDetails: function () {
+                    return 'I am ' + this.firstName + ' ' + this.lastName;
+                }
+            }
+        });
+        console.log('firstName: ', vm.firstName);
+        console.log('lastName: ', vm.lastName);
+        console.log('$data: ', vm.$data);
+
+
+        var component222 = Vue.extend({
+            data: function () {
+                return _obj2
+            }
+        });
+        var app22 = new Vue({
+            el: '#app22',
+            components: {
+                component222
+            }
+        });
+        console.log('www',app22)
+
+        // console.log('component: firstName: ', app22.firstName);
+        // console.log('component: firstName: ', myComponentInstance.lastName);
+
+    </script> -->
+
+    <script>
+        var vm = new Vue({
+            data: { a: 2 },
+            computed: {
+                aSum: function () {
+                    return this.a + 2;
+                },
+                aSquare: {
+                    get: function () {
+                        console.log('get call::')
+                        return this.a * this.a;
+                    },
+                    set: function (v) {
+                        console.log('set call::')
+                        this.a = v * 2;
+                    }
+                }
+            }
+        });
+
+        console.log('aSquare ->',vm.aSquare);
+        console.log('sum ->',vm.sum);
+    </script>
+
+</body>
+
+</html>
