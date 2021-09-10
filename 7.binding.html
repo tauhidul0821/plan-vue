@@ -10,9 +10,28 @@
 </head>
 
 <body>
+    <p>v-bind directive for data binding.</p>
+    <p>we can bind: </p>
+    <p>v-bind:href="data"</p>
+    <p>:href="data"</p>
+    <p>v-bind:class="{active:isactive}"</p>
 
-    
+
+    <div id="databinding" style="text-align: center;">
+        <a href="hreflink" target="_blank">click me 1 (not working) </a> <br />
+        <a href="{{hreflink}}" target="_blank">click me 2 (not working) </a><br />
+        <a v-bind:href="hreflink" target="_blank">click me 3 (That is working fine) </a><br />
+    </div>
+
     <script>
+        var vm = new Vue({
+            el: '#databinding',
+            data: {
+                title: 'Data Binding',
+                hreflink: 'http://www.google.com'
+
+            }
+        });
 
     </script>
 
