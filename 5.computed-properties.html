@@ -10,12 +10,40 @@
 </head>
 
 <body>
+    <div id='computed_props'>
+        firstName: <input type="text" v-model="firstname" /> <br /><br />
+        lastName: <input type="text" v-model="lastname" /> <br /><br />
 
-    
+        <h1>My name is {{firstname}} {{lastname}}</h1>
+        <h1>Using computed method: {{getfullname}}</h1>
+        <h1>Using method: {{getfullname2}}</h1>
+
+    </div>
+
+
     <script>
+        var vm = new Vue({
+            el: '#computed_props',
+            data: {
+                firstname: '',
+                lastname: '',
+                birthyear: ''
+            },
+            computed: {
+                getfullname: function () {
+                    return this.firstname + " " + this.lastname;
+                }
+            }
+
+        });
 
     </script>
 
+    <!-- we have already seen methods for vue instance and for component. computed properties are like methods but with some difference in comparison to methods, which we will discuss in this chapter ,   -->
+    <!-- at the end of this chapter, we will be able to make a decision on when to use method and when to use computed properties -->
+    <!-- here we have create .html file with firstname and lastname.Firstname and lastname is a textbox which are bound using properties firstname and lastname -->
+    <!-- we are calling the computed method getfullname, which returns the firstname and the lastname entered. -->
+    <!-- when we type in the textbox the same is returned by the function  -->
 </body>
 
 </html>
