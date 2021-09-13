@@ -10,9 +10,49 @@
 </head>
 
 <body>
+    <p>directives are instruction for vuejs to do things in a certain way. we have already seen directives such as v-if,
+        v-show, v-else,v-for,v-bind,v-model,v-on etc</p>
+    <p>in this chapter we will take a look at custom directives. we will create global directives similar to how to did
+        for components.</p>
 
-    
+    <div id="customdirectives">
+        <div v-changestyle>VueJS Directive</div>
+    </div>
+
+    <div id="customdir2">
+        <input v-model="name" placeholder="Enter Name" /><br />
+        <span style="font-size:25px;"><b>Letter count is : {{name | countletters}}</b></span>
+    </div>
+
     <script>
+        Vue.directive('changestyle', {
+            bind(el, binding, vnode) {
+                console.log('el ->', el);
+                console.log('binding ->', binding);
+                console.log('vnode ->', vnode);
+                el.style.color = "red";
+                el.style.fontSize = "30px";
+            }
+        });
+        var vm = new Vue({
+            el: '#customdirectives',
+            data: {},
+            methods: {}
+        });
+
+
+        var vm2 = new Vue({
+            el: '#customdir2',
+            data: {
+                name: ""
+            },
+            filters: {
+                countletters: function (value) {
+                    console.log(value)
+                    return value.length;
+                }
+            }
+        });
 
     </script>
 

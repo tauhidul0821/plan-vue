@@ -10,9 +10,28 @@
 </head>
 
 <body>
+    <div id="eventbinding">
+        <button v-on:click="displaynumbers">click ME</button>
+        <h2 v-bind:style="styleobj" v-on:mouseover="changebgcolor" v-on:mouseout="originalcolor">Add number = {{total}}</h2>
 
-    
+    </div>
+
+
     <script>
+        var vm = new Vue({
+            el: '#eventbinding',
+            data: {
+                num1: 100,
+                num2: 200,
+                total: ''
+            },
+            methods: {
+                displaynumbers: function (e) {
+                    console.log(e)
+                    return this.total = this.num1 + this.num2;
+                },
+            }
+        });
 
     </script>
 
