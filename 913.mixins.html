@@ -10,9 +10,35 @@
 </head>
 
 <body>
+    <p>mixins are basically to be used with components. they share reusable code among components. when a component uses
+        mixin, all options of mixin become a part of the component options </p>
+    <div id="mixinsvue">
 
-    
+    </div>
+
     <script>
+        var vm = new Vue({
+            el: '',
+            data: {},
+            methods: {
+
+            }
+        });
+
+        var myMixin = {
+            created: function () {
+                this.startmixin();
+            },
+            methods: {
+                startmixin: function () {
+                    alert("welcome to mixin example");
+                }
+            }
+        };
+        var Component = Vue.extend({
+            mixins: [myMixin]
+        });
+        var compon = new Component();
 
     </script>
 
