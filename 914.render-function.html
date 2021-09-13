@@ -10,9 +10,60 @@
 </head>
 
 <body>
+    <p>slot takes the value to send inside the component as shown in the folloing code</p>
+    <p>this.$slots.default, it takes the default assigned in the component field</p>
+    <div id="component_test">
+        <testcomponent></testcomponent>
+        <testcomponent></testcomponent>
+        <testcomponentwithslot>hello tauhid</testcomponentwithslot>
 
-    
+        <rendertest :elementtype="'div,green,25,div1'">Hello ben</rendertest>
+        <rendertest :elementtype="'h3,blue,22,h3tag'">Hello ddd</rendertest>
+        <rendertest :elementtype="'p,red,28,ptag'">Hello ppp</rendertest>
+        <rendertest :elementtype="'div,black,21,divtag'">Hello eee</rendertest>
+    </div>
+
+
     <script>
+        Vue.component('testcomponent', {
+            template: '<h1>Hello World</h1>',
+        });
+        Vue.component('testcomponentwithslot', {
+            template: '<h1><slot></slot></h1>',
+        });
+
+
+
+        Vue.component('rendertest', {
+            props: {
+                elementtype: {
+                    attributes: String,
+                    required: true
+                }
+            },
+            render: function (createElement) {
+                var a = this.elementtype.split(',');
+                console.log(a)
+                console.log(a[0])
+                return createElement(a[0], {
+                    attrs: {
+                        id: a[3],
+                        style: "color:" + a[1] + ";font-size:" + a[2] + ";"
+                    }
+                },
+                    this.$slots.default
+                )
+            }
+        });
+
+
+
+
+
+
+        var vm = new Vue({
+            el: '#component_test'
+        });
 
     </script>
 
